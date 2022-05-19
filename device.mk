@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # Inherit from vendor if exists
-$(call inherit-product-if-exists, vendor/xiaomi/juice/juice-vendor.mk)
+$(call inherit-product-if-exists, vendor/motorola/guamp/guamp-vendor.mk)
 
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 29
@@ -41,8 +41,7 @@ TARGET_COMMON_QTI_COMPONENTS := \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     vendor/qcom/opensource/dataservices \
-    vendor/qcom/opensource/data-ipa-cfg-mgr \
-    hardware/xiaomi
+    vendor/qcom/opensource/data-ipa-cfg-mgr
 
 # Add default implementation of fastboot HAL.
 PRODUCT_PACKAGES += android.hardware.fastboot@1.0-impl-mock
@@ -181,8 +180,6 @@ PRODUCT_PACKAGES += \
     libstdc++.vendor \
     libgui_vendor \
     libxml2 \
-
-PRODUCT_PACKAGES += GoogleCameraGo
 
 # Display
 PRODUCT_PACKAGES += \
@@ -387,8 +384,6 @@ PRODUCT_PACKAGES += \
     libutils \
     libutils.vendor
 
-PRODUCT_PACKAGES +=  matlog
-
 # Service Tracker
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.servicetracker@1.2-service \
@@ -435,7 +430,7 @@ PRODUCT_COPY_FILES += \
 
 # Fstab
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
 # Ramdisk
 PRODUCT_PACKAGES += \
