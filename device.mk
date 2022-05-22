@@ -167,3 +167,46 @@ PRODUCT_COPY_FILES += \
 
 # Inherit vendor
 $(call inherit-product, vendor/motorola/guamp/guamp-vendor.mk)
+
+# APEX
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+# Boot
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.1-impl-qti.recovery
+
+# GSI
+$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+
+# Namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    device/motorola/guamp
+
+# Platform
+TARGET_BOARD_PLATFORM := bengal
+
+# QTI
+TARGET_COMMON_QTI_COMPONENTS += \
+    audio \
+    av \
+    bt \
+    display \
+    gps \
+    init \
+    media \
+    overlay \
+    perf \
+    telephony \
+    usb \
+    vibrator \
+    wfd \
+    wlan
+
+# Shipping API
+PRODUCT_SHIPPING_API_LEVEL := 29
+
+# Update Engine
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
